@@ -3,6 +3,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { HealthCheckResolver } from './resolvers/health-check.resolver';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -10,7 +11,7 @@ import { HealthCheckResolver } from './resolvers/health-check.resolver';
       driver: ApolloDriver,
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault({ footer: false })],
-      autoSchemaFile: true,
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
   ],
   providers: [HealthCheckResolver],
