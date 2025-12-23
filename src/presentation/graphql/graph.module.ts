@@ -4,6 +4,7 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
 import { HealthCheckResolver } from './resolvers/health-check.resolver';
 import { join } from 'path';
+import { UseCaseModule } from 'src/usecase/usecase.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { join } from 'path';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       introspection: true,
     }),
+    UseCaseModule,
   ],
   providers: [HealthCheckResolver],
 })

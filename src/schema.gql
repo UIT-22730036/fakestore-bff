@@ -2,6 +2,10 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type HealthCheck {
+  message: String!
+}
+
 type Query {
-  healthCheck(name: String!): String!
+  healthCheck(name: String!): HealthCheck!
 }
