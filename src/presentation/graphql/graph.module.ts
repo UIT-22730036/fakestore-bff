@@ -12,6 +12,7 @@ import { join } from 'path';
       playground: false,
       plugins: [ApolloServerPluginLandingPageLocalDefault({ footer: false })],
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      introspection: true,
     }),
   ],
   providers: [HealthCheckResolver],
